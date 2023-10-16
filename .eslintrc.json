@@ -1,3 +1,33 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier", "airbnb"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "jsx-quotes": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "comma-dangle": "off",
+    "import/extensions": "off",
+    "react/button-has-type": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-curly-newline": "off",
+    "operator-linebreak": "off",
+    "object-curly-newline": "off",
+    "indent": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
+  },
+  "plugins": ["cypress", "@typescript-eslint"],
+  "env": {
+    "cypress/globals": true
+  },
+  "globals": {
+    "JSX": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "paths": ["src"], "extensions": [".js", ".ts", ".d.ts"] }
+    }
+  }
 }
