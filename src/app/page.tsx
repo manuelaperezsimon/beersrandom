@@ -1,4 +1,4 @@
-import BeerCard from '@/components/BeerCard/BeerCard';
+import BeerCard from '../components/BeerCard/BeerCard';
 
 export default function Home() {
   return (
