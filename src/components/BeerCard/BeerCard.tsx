@@ -6,7 +6,7 @@ import { Beer } from '@/interfaces/interfaces';
 import Image from 'next/image';
 
 const BeerCard = () => {
-  const { getRandomBeer } = useBeers();
+  const { getRandomBeer, getNonAlcoholicRandomBeer } = useBeers();
   const [randomBeer, setRandomBeer] = useState({} as Beer);
 
   const getrandom = async () => {
@@ -15,7 +15,18 @@ const BeerCard = () => {
       if (beer) {
         const randomBeer = beer as Beer;
         setRandomBeer(randomBeer as Beer);
-        console.log(randomBeer);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getNonAlcoholicBeer = async () => {
+    try {
+      const beer = await getNonAlcoholicRandomBeer();
+      if (beer) {
+        const randomBeer = beer as Beer;
+        setRandomBeer(randomBeer as Beer);
       }
     } catch (err) {
       console.log(err);
@@ -59,7 +70,7 @@ const BeerCard = () => {
                   </button>
                   <button
                     className="inline-flex items-center rounded-md bg-gray-50 px-4 py-2 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10 mt-10"
-                    onClick={getrandom}
+                    onClick={getNonAlcoholicBeer}
                   >
                     Get non alcoholic Random Beer
                   </button>
