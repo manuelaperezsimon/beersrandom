@@ -23,8 +23,29 @@ const useBeers = () => {
       errorModal('Is not possible to get a random beer');
     }
   }, []);
+
+  const getNonAlcoholicRandomBeer = useCallback(async (): Promise<
+    Beer | undefined
+  > => {
+    const randomBeersUrl = 'https://api.punkapi.com/v2/beers/random';
+
+    try {
+      let beer = undefined;
+
+      while (!beer || beer.abv >= 5.0) {
+        const { data } = await axios.get(randomBeersUrl);
+        beer = data[0] as Beer;
+      }
+
+      return beer;
+    } catch (error) {
+      errorModal('Is not possible to get a random beer');
+    }
+  }, []);
+
   return {
     getRandomBeer,
+    getNonAlcoholicRandomBeer,
   };
 };
 
