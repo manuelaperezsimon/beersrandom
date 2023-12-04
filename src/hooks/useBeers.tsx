@@ -46,7 +46,7 @@ const useBeers = () => {
   const getBeersByName = useCallback(
     async (nameSearch: string): Promise<Beer[] | undefined> => {
       console.log(nameSearch);
-      const randomBeersUrl = `https://api.punkapi.com/v2/beers?beer_name=${nameSearch}`;
+      const randomBeersUrl = `https://api.punkapi.com/v2/beers?beer_name=${nameSearch}&per_page=10`;
       try {
         const { data } = await axios.get(randomBeersUrl);
 
@@ -60,7 +60,7 @@ const useBeers = () => {
 
   const getBeersByDescription = useCallback(
     async (descriptionSearch: string): Promise<Beer[] | undefined> => {
-      const randomBeersUrl = `https://api.punkapi.com/v2/beers?description=${descriptionSearch}`;
+      const randomBeersUrl = `https://api.punkapi.com/v2/beers?description=${descriptionSearch}&per_page=10`;
       try {
         const { data } = await axios.get(randomBeersUrl);
 
