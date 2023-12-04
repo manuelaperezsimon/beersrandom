@@ -1,3 +1,4 @@
+import Search from '@/components/Search/Search';
 import { ToastContainer } from 'react-toastify';
 import BeerCard from '../components/BeerCard/BeerCard';
 
@@ -11,6 +12,7 @@ export default function Home() {
         </p>
       </div>
       <BeerCard />
+      <Search />
     </main>
   );
 }
