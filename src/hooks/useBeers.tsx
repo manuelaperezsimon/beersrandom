@@ -43,9 +43,40 @@ const useBeers = () => {
     }
   }, []);
 
+  const getBeersByName = useCallback(
+    async (nameSearch: string): Promise<Beer[] | undefined> => {
+      console.log(nameSearch);
+      const randomBeersUrl = `https://api.punkapi.com/v2/beers?beer_name=${nameSearch}`;
+      try {
+        const { data } = await axios.get(randomBeersUrl);
+
+        return data;
+      } catch (error) {
+        errorModal('Is not possible to get beers by name');
+      }
+    },
+    []
+  );
+
+  const getBeersByDescription = useCallback(
+    async (descriptionSearch: string): Promise<Beer[] | undefined> => {
+      const randomBeersUrl = `https://api.punkapi.com/v2/beers?description=${descriptionSearch}`;
+      try {
+        const { data } = await axios.get(randomBeersUrl);
+
+        return data;
+      } catch (error) {
+        errorModal('Is not possible to get beers by description');
+      }
+    },
+    []
+  );
+
   return {
     getRandomBeer,
     getNonAlcoholicRandomBeer,
+    getBeersByName,
+    getBeersByDescription,
   };
 };
 
