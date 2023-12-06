@@ -50,12 +50,12 @@ const Search = () => {
 
   return (
     <>
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+      <div className="z-10 max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-4 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 mb-10 mt-10">
           Search beers
         </p>
       </div>
-      <div className="flex flex-col self-start ml-28 gap-10">
+      <div className="flex flex-col self-center gap-10">
         <div className="flex">
           <div>
             <span
@@ -114,7 +114,7 @@ const Search = () => {
             Search
           </button>
         </div>
-        <div>
+        <div className="flex justify-center">
           <input
             className="p-2 rounded-md"
             type="search"
@@ -125,7 +125,7 @@ const Search = () => {
       </div>
 
       {searchedBeers?.length > 0 && (
-        <ul>
+        <ul className="flex flex-col w-6/12">
           {searchedBeers.map((beer) => (
             <li
               key={beer.name}
